@@ -63,6 +63,8 @@
               </div>
               {% endfor %}
 
+
+              {% if otherSkills %}
               <h3 class="devInfo__subtitle">Other Skills</h3>
               <div class="devInfo__otherSkills">
                 
@@ -72,6 +74,7 @@
                 </span>
                 {% endfor %}
               </div>
+              {% endif %}
             </div>
           </div>
           <div class="devInfo">
@@ -82,7 +85,7 @@
               <div class="column">
                 <div class="card project">
                   <a href="{% url 'project' project.id %}" class="project">
-                    <img class="project__thumbnail" src="{{ project.featured_image.url }}" alt="project thumbnail" />
+                    <img class="project__thumbnail" style="min-width:450px;" src="{{ project.featured_image.url }}" alt="project thumbnail" />
                     <div class="card__body">
                       <h3 class="project__title">{{ project.title }}</h3>
                       <p><a class="project__author" href="profile.html">{{ project.owner }}</a></p>

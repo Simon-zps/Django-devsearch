@@ -35,6 +35,10 @@ class Project(models.Model):
         self.vote_ratio = ratio
         self.save()
 
+    @property
+    def reviewers(self):
+        queryset = self.review_set.all().values_list('owner__id', flat=True)
+        return queryset
 
 class Review(models.Model):
     VOTE_TYPE = (
