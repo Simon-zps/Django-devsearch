@@ -1,3 +1,19 @@
+let loginBtn = document.getElementById('login-btn')
+let logoutBtn = document.getElementById('logout-btn')
+
+let token = localStorage.getItem('token') //Using let instead of var clearly
+
+if(token){
+    loginBtn.remove()
+}else{
+    logoutBtn.remove()
+}
+
+logoutBtn.addEventListener('click', (e)=>{
+    e.preventDefault()
+    localStorage.removeItem('token')
+    window.location= 'file:///C:/Users/kreni/Desktop/devsearch1/frontend/login.html'
+})
 
 let projectsURL = "http://127.0.0.1:8000/api/projects/"
 let getProjects = () => {
