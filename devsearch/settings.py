@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-from credentials import EMAIL_HOST_PASSWORD, EMAIL_HOST_USER
+from credentials import EMAIL_HOST_PASSWORD, EMAIL_HOST_USER, POSTGRES_PASSWORD, HOST
 from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -124,6 +124,19 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+'''
+Turn Postgres to deploy on AWS
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'devsearchapp',
+        'USER': 'postgres',
+        'PASSWORD': POSTGRES_PASSWORD,
+        'HOST': HOST,
+        'PORT': '5432',
+    }
+}
+'''
 
 DATABASES = {
     'default': {
@@ -131,6 +144,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
 
 
 # Password validation
